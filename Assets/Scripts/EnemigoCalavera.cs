@@ -8,6 +8,7 @@ public class EnemigoCalavera : MonoBehaviour
     [SerializeField] Camera camara;
     [SerializeField] Vector2 posicionMinima;
     [SerializeField] Vector2 posicionInicial;
+    [SerializeField] 
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,9 @@ public class EnemigoCalavera : MonoBehaviour
             transform.position = posicionInicial;
             velocidad++;
         }
+    }
+    public void iniciarenemigo()
+    {
+
     }
 }
