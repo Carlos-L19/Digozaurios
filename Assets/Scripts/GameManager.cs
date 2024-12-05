@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject exit;
     [SerializeField] GameObject jugador;
     [SerializeField] GameObject enemigo;
+    [SerializeField] GameObject volador;
     [SerializeField] bool time;
     [SerializeField] public float tiempo;
     [SerializeField] TMP_Text textoTiempo;
     [SerializeField] int puntuacionActual;
     [SerializeField] int mejorPuntuacion;
+    [SerializeField] MoverEnemigo3 moverEnemigo3;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         jugador.SetActive(false);
         enemigo.SetActive(false);
+        volador.SetActive(false);
         jugar.SetActive(true);
         exit.SetActive(true);
         gameOver.SetActive(true);
@@ -51,6 +54,8 @@ public class GameManager : MonoBehaviour
         puntuacionActual = 0;
         jugador.SetActive(true);
         enemigo.SetActive(true);
+        volador.SetActive(true);
+        moverEnemigo3.IniarEnemigo();
         jugar.SetActive(false);
         exit.SetActive(false);
         gameOver.SetActive(false);
