@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool time;
     [SerializeField] public float tiempo;
     [SerializeField] TMP_Text textoTiempo;
-    [SerializeField] int puntuacionActual;
-    [SerializeField] int mejorPuntuacion;
+    [SerializeField] public int puntuacionActual;
+    [SerializeField] public int mejorPuntuacion;
     [SerializeField] MoverEnemigo3 moverEnemigo3;
     // Start is called before the first frame update
     void Start()
