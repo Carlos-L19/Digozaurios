@@ -17,7 +17,7 @@ public class Tiempo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         puntuacionActual.text = instance.puntuacionActual.ToString();
+        puntuacionActual.text = instance.puntuacionActual.ToString();
         mejorPuntuacion.text = instance.mejorPuntuacion.ToString();
     }
 }
