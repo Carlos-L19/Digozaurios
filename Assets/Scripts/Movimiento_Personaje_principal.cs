@@ -6,7 +6,9 @@ public class Movimiento_Personaje_principal : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rigidbody2;
     [SerializeField] int altura;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator animator, Trigger;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClips;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +24,16 @@ public class Movimiento_Personaje_principal : MonoBehaviour
             animator.SetBool("Salto", true);
             rigidbody2.velocity = Vector3.zero;
             rigidbody2.AddForce(Vector3.up * altura);
+            audioSource.clip = audioClips[0];
+            audioSource.Play();
         }
         else
         {
             animator.SetBool("Caida", true);
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            animator.SetTrigger("Agacharse");
         }
     }
 
