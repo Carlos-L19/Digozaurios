@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
             int minutos = (int)tiempo / 60;
             int segundos = (int)tiempo % 60;
             Debug.Log($"{minutos:D2}:{segundos:D2}");
-            textoTiempo.text = $"{minutos: D2}:{segundos: D2}";
+            textoTiempo.text = $"{minutos:D2}:{segundos:D2}";
         }
     }
     public void perder()
