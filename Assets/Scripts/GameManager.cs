@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject gameOver;
     [SerializeField] GameObject jugar;
-    [SerializeField] GameObject exit;
     [SerializeField] GameObject jugador;
     [SerializeField] GameObject enemigo;
     [SerializeField] GameObject volador;
@@ -17,14 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int puntuacionActual;
     [SerializeField] public int mejorPuntuacion;
     [SerializeField] MoverEnemigo3 moverEnemigo3;
+    [SerializeField] EnemigoCalavera enemigoCalavera;
+    [SerializeField] AudioSource musicaFondo;
     // Start is called before the first frame update
     void Start()
     {
 
         gameOver.SetActive(false);
         jugar.SetActive(false);
-        exit.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -45,9 +44,9 @@ public class GameManager : MonoBehaviour
         enemigo.SetActive(false);
         volador.SetActive(false);
         jugar.SetActive(true);
-        exit.SetActive(true);
         gameOver.SetActive(true);
         time = false;
+        musicaFondo.Stop();
     }
     public void ReiniciarNivel()
     {
@@ -56,13 +55,22 @@ public class GameManager : MonoBehaviour
         enemigo.SetActive(true);
         volador.SetActive(true);
         moverEnemigo3.IniarEnemigo();
+        enemigoCalavera.iniciarenemigo();
         jugar.SetActive(false);
-        exit.SetActive(false);
         gameOver.SetActive(false);
         tiempo = 0;
         time = true;
+        musicaFondo.Play();
     }
 
-    
 
+    public void SumarPuntos()
+    {
+        puntuacionActual++;
+        if (puntuacionActual > mejorPuntuacion)
+        {
+            mejorPuntuacion = puntuacionActual;
+            PlayerPrefs.SetInt("MejorPuntuacion", mejorPuntuacion);
+        }
+    }
 }

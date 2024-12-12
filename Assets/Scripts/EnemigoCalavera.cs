@@ -30,6 +30,6 @@ public class EnemigoCalavera : MonoBehaviour
     public void iniciarenemigo()
     {
         transform.position = posicionInicial;
-        velocidad = 0;
+        velocidad = 10;
     }
 }

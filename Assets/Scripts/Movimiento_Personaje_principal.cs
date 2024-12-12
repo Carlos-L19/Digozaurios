@@ -9,11 +9,13 @@ public class Movimiento_Personaje_principal : MonoBehaviour
     [SerializeField] Animator animator, Trigger;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClips;
+    [SerializeField] GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2 = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Movimiento_Personaje_principal : MonoBehaviour
         {
             animator.SetBool("Caida", true);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             animator.SetTrigger("Agacharse");
         }
@@ -41,5 +43,9 @@ public class Movimiento_Personaje_principal : MonoBehaviour
     {
         animator.SetBool("Salto", false);
         animator.SetBool("Caida", false);
+        if (collision.transform.tag == "enemigo")
+        {
+            gameManager.perder();
+        }
     }
 }
